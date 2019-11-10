@@ -1,5 +1,7 @@
 #!/bin/bash
 echo 'alright testing'
+#. ./onchange.lib
 
+#fswatch --one-per-batch . | testChange
 
-fswatch -1 ./ | xargs -0 -n1 ./onchange.sh
+. ./directory_check.lib

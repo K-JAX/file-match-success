@@ -1,0 +1,11 @@
+testChange()
+{
+
+#	cmp --silent test-one test-two && echo 'some shit'
+#	echo $?
+
+	while read event; do
+		cmp --silent ./test-one ./test-two
+		echo "And the event var is: ${?}"
+	done
+}

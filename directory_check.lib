@@ -1,0 +1,13 @@
+
+#for entry in ./*
+#	do
+#		echo $entry
+#	done
+
+DIFF=$(diff ./test_dir_1 ./test_dir_2)
+if [ "$DIFF" != "" ]
+then
+	echo "They're different"
+else
+	echo "They're the same"
+fi
