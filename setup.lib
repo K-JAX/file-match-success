@@ -1,0 +1,28 @@
+# User params
+
+depth=4
+
+i=0
+max=10
+dirnames=()
+while [ "$i" -lt "$max" ]
+do 
+	randexp=`perl -e "print int rand(99999)"`
+	dirnames+=`sed $randexp" q;d" /usr/share/dict/words`
+	let "i++"
+done
+
+
+# Okay lets setup the path string variable
+dirPathAppend=''
+
+# Function for joining all array items together with path "/" fslashes
+function join_by { local IFS="$1"; shift; echo "$*"; }
+
+dirPathAppend=$(join_by / "${dirnames[@]:0:$depth-1}")
+
+# Okay now that we have the random directories lets append the real ones at the end
+dirPathAppend="${dirPathAppend}/exercise"
+#echo $dirPathAppend
+
+mkdir -p $dirPathAppend

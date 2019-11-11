@@ -1,13 +1,10 @@
-
-#for entry in ./*
-#	do
-#		echo $entry
-#	done
+# Code block for checking between two directories
 
 DIFF=$(diff ./test_dir_1 ./test_dir_2)
 if [ "$DIFF" != "" ]
 then
 	echo "They're different"
 else
-	echo "They're the same"
+	echo -e "\033[1;33mSuccess\033[36m"
 fi
+

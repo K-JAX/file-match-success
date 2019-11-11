@@ -1,11 +1,16 @@
+# Code block for checking between two directories
+
 testChange()
 {
-
-#	cmp --silent test-one test-two && echo 'some shit'
-#	echo $?
-
-	while read event; do
-		cmp --silent ./test-one ./test-two
-		echo "And the event var is: ${?}"
-	done
+	while read -s event; do
+		DIFF=$(diff ./test_dir_1 ./test_dir_2)
+		if [ "$DIFF" != "" ]
+		then
+			echo "They're different \n"
+			continue
+		else
+			echo -e "\033[1;33mSuccess\033[36m"
+			break
+		fi
+	done &
 }
