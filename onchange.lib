@@ -6,7 +6,6 @@ testChange()
 		DIFF=$(diff ./test_dir_1 ./test_dir_2)
 		if [ "$DIFF" != "" ]
 		then
-			echo "They're different \n"
 			continue
 		else
 			echo -e "\033[1;33mSuccess\033[36m"

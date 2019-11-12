@@ -7,6 +7,7 @@ echo 'Starting scripts'
 . ./setup.lib
 . ./onchange.lib
 
+testChange
 
 fswatch --one-per-batch . | testChange
 
