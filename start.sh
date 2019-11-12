@@ -7,7 +7,6 @@ echo 'Starting scripts'
 . ./setup.lib
 . ./onchange.lib
 
-testChange
-
-fswatch --one-per-batch . | testChange
+#createdirectories 10
+#fswatch --one-per-batch . | testChange ./test_dir_1 ./test_dir_2
 

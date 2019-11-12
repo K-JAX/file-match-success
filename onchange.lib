@@ -2,8 +2,9 @@
 
 testChange()
 {
+
 	while read -s event; do
-		DIFF=$(diff ./test_dir_1 ./test_dir_2)
+		DIFF=$(diff $1 $2 )
 		if [ "$DIFF" != "" ]
 		then
 			continue
